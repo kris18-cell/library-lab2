@@ -9,9 +9,9 @@ const Add = () => {
     desc: "",
     price: null,
     cover: "",
+    author_id: "", // додано
   });
-  const [error,setError] = useState(false)
-
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -41,7 +41,7 @@ const Add = () => {
       <textarea
         rows={5}
         type="text"
-        placeholder="Book desc"
+        placeholder="Book description"
         name="desc"
         onChange={handleChange}
       />
@@ -53,15 +53,22 @@ const Add = () => {
       />
       <input
         type="text"
-        placeholder="Book cover"
+        placeholder="Book cover URL"
         name="cover"
         onChange={handleChange}
       />
+      <input
+        type="number"
+        placeholder="Author ID"
+        name="author_id"
+        onChange={handleChange}
+      />
       <button onClick={handleClick}>Add</button>
-      {error && "Something went wrong!"}
+      {error && <p>Something went wrong!</p>}
       <Link to="/">See all books</Link>
     </div>
   );
 };
 
 export default Add;
+
