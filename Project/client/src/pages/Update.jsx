@@ -8,8 +8,9 @@ const Update = () => {
     desc: "",
     price: null,
     cover: "",
+    author_id: "", // додано
   });
-  const [error,setError] = useState(false)
+  const [error, setError] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,11 +61,18 @@ const Update = () => {
         name="cover"
         onChange={handleChange}
       />
+      <input
+        type="number"
+        placeholder="Author ID"
+        name="author_id"
+        onChange={handleChange}
+      />
       <button onClick={handleClick}>Update</button>
-      {error && "Something went wrong!"}
+      {error && <p>Something went wrong!</p>}
       <Link to="/">See all books</Link>
     </div>
   );
 };
 
 export default Update;
+
